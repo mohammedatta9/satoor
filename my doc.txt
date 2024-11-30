@@ -1,0 +1,2 @@
+php artisan
+artisan file php to make commante for make codes
