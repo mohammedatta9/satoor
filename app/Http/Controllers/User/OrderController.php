@@ -21,7 +21,7 @@ class OrderController extends Controller
     {
 
         $order  = Order::find($id);
-        if($order && $order->owner_id == Auth::user()->id || 'admin' == Auth::user()->role ){
+        if($order && $order->owner_id == Auth::user()->id ){
             // جلب محتوى المودال من ملف Blade
             $modalContent = view('user.orders.order_edit', compact('order'))->render();
 

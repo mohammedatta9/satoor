@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Agent\AgentController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Front\OrderController;
@@ -43,6 +44,10 @@ require __DIR__.'/auth.php';
 //admin routes
 Route::group(['as'=> 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'role:admin']],function () {
     Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+
+    // user
+    Route::resource('users', AdminUserController::class,['only' => ['index', 'show']]);
+    Route::put('user-status/{id}', [AdminUserController::class,'changeStatus']);
 
 });
 

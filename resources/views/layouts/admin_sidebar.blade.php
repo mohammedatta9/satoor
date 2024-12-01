@@ -10,7 +10,9 @@
        <ul class="sidebar-menu">
             <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> <span>{{__('admin.Dashboard')}}</span></a></li>
 
-
+            <li class="{{ Route::is('admin.agent.*') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('admin.users.index') }}"><i class="fas fa-users"></i>
+                <span>{{ __('dash.Users') }}</span></a></li>
         </ul>
     </aside>
   </div>
